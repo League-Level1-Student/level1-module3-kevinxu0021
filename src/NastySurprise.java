@@ -19,7 +19,8 @@ public class NastySurprise implements ActionListener {
 	NastySurprise() {
 		jpanel.add(jbutton1);
 		jpanel.add(jbutton2);
-		
+		jbutton1.addActionListener(this);
+		jbutton2.addActionListener(this);
 		jframe.add(jpanel);
 		jframe.setVisible(true);
 		jframe.pack();
