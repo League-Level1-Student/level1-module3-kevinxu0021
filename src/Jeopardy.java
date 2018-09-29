@@ -55,9 +55,11 @@ public class Jeopardy implements ActionListener {
 		// 6. Use the createButton method to set the value of firstButton
 		firstButton = createButton("$100");
 		thirdButton = createButton("$400");
+		fifthButton = createButton("$800");
 		// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		quizPanel.add(thirdButton);
+		quizPanel.add(fifthButton);
 		// 8. Write the code to complete the createButton() method below. Check that
 		// your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
@@ -65,12 +67,19 @@ public class Jeopardy implements ActionListener {
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
 		secondButton = createButton("$200");
+		fourthButton = createButton("$600");
+		sixthButton = createButton("$1000");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
+		quizPanel.add(fourthButton);
+		quizPanel.add(sixthButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 		firstButton.addActionListener(this);
 		secondButton.addActionListener(this);
 		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
+		sixthButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
@@ -120,6 +129,15 @@ public class Jeopardy implements ActionListener {
 		} else if (buttonPressed == thirdButton) {
 			askQuestion("How many cores does the 7980XE have?", "18cores", 400);
 			thirdButton.setText(null);
+		}else if (buttonPressed == fourthButton) {
+			askQuestion("How many thread does 79980XE have?", "16thread", 600);
+			fourthButton.setText(null);
+		}else if (buttonPressed == fifthButton) {
+			askQuestion("What is the base clock of 7980XE", "2.6GHz", 800);
+			fifthButton.setText(null);
+		}else {
+			askQuestion("What is the boost clock of 7980XE", "4.4GHz", 1000);
+			sixthButton.setText(null);
 		}
 		// Clear the text on the button that was pressed (set the button text to
 		// nothing)
@@ -143,6 +161,7 @@ public class Jeopardy implements ActionListener {
 			score += prizeMoney;
 			// Pop up a message to tell the user they were correct
 			JOptionPane.showMessageDialog(null, "You were correct");
+			showCorrectImage();
 		} else {
 			// Otherwise
 
@@ -151,6 +170,7 @@ public class Jeopardy implements ActionListener {
 			// Pop up a message to tell the user they were wrong and give them the correct
 			// answer
 			JOptionPane.showMessageDialog(null, "You were wrong. The correct answer is " + correctAnswer + ". ");
+			showIncorrectImage();
 		}
 		// Call the updateScore() method
 		updateScore();
