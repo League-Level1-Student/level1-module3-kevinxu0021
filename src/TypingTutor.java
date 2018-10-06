@@ -1,25 +1,79 @@
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-public class TypingTutor {
+public class TypingTutor implements KeyListener {
 	JFrame frame = new JFrame();
-	char currentLetter;
+	JPanel panel = new JPanel();
+	JLabel label = new JLabel();
+	public char currentLetter;
+	Date timeAtStart = new Date();
 
 	public static void main(String[] args) {
 		TypingTutor typingtutor = new TypingTutor();
 		typingtutor.setup();
+
 	}
 
 	public void setup() {
+
+		frame.add(panel);
+		frame.addKeyListener(this);
+		panel.add(label);
 		frame.setVisible(true);
 		frame.setTitle("Type or Die");
 		frame.setSize(300, 100);
 		currentLetter = generateRandomLetter();
+		label.setFont(label.getFont().deriveFont(28.0f));
+		label.setHorizontalAlignment(JLabel.CENTER);
+		label.setText(currentLetter + "");
+
 	}
 
 	char generateRandomLetter() {
 		Random r = new Random();
 		return (char) (r.nextInt(26) + 'a');
+	}
+
+	private void showTypingSpeed(int numberOfCorrectCharactersTyped) {
+		Date timeAtEnd = new Date();
+		long gameDuration = timeAtEnd.getTime() - timeAtStart.getTime();
+		long gameInSeconds = (gameDuration / 1000) % 60;
+		double charactersPerSecond = ((double) numberOfCorrectCharactersTyped / (double) gameInSeconds);
+		int charactersPerMinute = (int) (charactersPerSecond * 60);
+		JOptionPane.showMessageDialog(null, "Your typing speed is " + charactersPerMinute + " characters per minute.");
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+		if (e.getKeyChar() == currentLetter) {
+			System.out.println("Correct");
+			currentLetter = generateRandomLetter();
+			label.setText(currentLetter + "");
+			panel.setBackground(Color.green);
+			showTypingSpeed(e.getKeyChar());
+		} else {
+			panel.setBackground(Color.red);
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("You Typed: " + e.getKeyChar());
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 	}
 }
