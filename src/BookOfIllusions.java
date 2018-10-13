@@ -19,7 +19,7 @@ import javax.swing.JLabel;
  **/
 
 public class BookOfIllusions extends MouseAdapter {
-
+	JLabel label;
 	/*
 	 * Here we are instantiating our BookOfIllusions class and calling it’s
 	 * createBook() method. This is because we want to get out of the static main
@@ -44,10 +44,9 @@ public class BookOfIllusions extends MouseAdapter {
 		// 5. make a variable to hold the location of your image. e.g. "illusion.jpg"
 		String image1 = "RTX 2080Ti.jpg";
 		// 6. create a variable of type "JLabel" but don’t initialize it yet
-		JLabel label;
+
 		// 7. use the "loadImage..." methods below to initialize your JLabel
-		label = new JLabel();
-		loadImageFromComputer(image1);
+		label = loadImageFromComputer(image1);
 		// 8. add your JLabel to the frame
 		frame.add(label);
 		// 9. call the pack() method on the frame
@@ -56,15 +55,15 @@ public class BookOfIllusions extends MouseAdapter {
 		frame.addMouseListener(this);
 	}
 
-	public void mousePressed(Object object) {
+	public void mousePressed(MouseEvent e) {
 		// 11. Print "clicked!" to the console when the mouse is pressed
 		System.out.println("Clicked!");
 		// 12. remove everything from the frame that was added earlier
-		frame.removeAll();
+		frame.remove(label);
 		// 13. load a new image like before (this is more than one line of code)
 		String image2 = "Xbox.jpg";
-		loadImageFromComputer(image2);
-
+		label = loadImageFromComputer(image2);
+		frame.add(label);
 		// 14. pack the frame
 		frame.pack();
 	}
