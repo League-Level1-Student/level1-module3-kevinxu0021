@@ -1,9 +1,11 @@
 /BookOfIllusions.class
+/Calculator.class
 /ChuckleClicker.class
 /Clown.jpg
 /CowTimer.class
 /FortuneTeller.class
 /Jeopardy.class
+/Magic8Ball.class
 /Movie.class
 /NastySurprise.class
 /NetflixQueue.class
@@ -11,6 +13,7 @@
 /RTX 2080Ti.jpg
 /Recipes.html
 /SimonSays.class
+/Spooky Sound.wav
 /TypingTutor.class
 /Xbox.jpg
 /creepy-noise.wav
@@ -23,7 +26,5 @@
 /moo.wav
 /right.jpg
 /up.jpg
-/Spooky Sound.wav
-/Magic8Ball.class
-/FortuneTeller$1Magic8Ball.class
-/Calculator.class
+/CalculatorRunner.class
+/Calculator/
