@@ -38,7 +38,7 @@ public class CalculatorRunner implements ActionListener {
 		panel.add(button2);
 		panel.add(button3);
 		panel.add(button4);
-		label.setPreferredSize(new Dimension(76, 50));
+		label.setPreferredSize(new Dimension(150, 50));
 		panel.add(label);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
@@ -52,8 +52,8 @@ public class CalculatorRunner implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		label.setFont(font);
 		// TODO Auto-generated method stub
-		int number1 = Integer.parseInt(input1.getText());
-		int number2 = Integer.parseInt(input2.getText());
+		double number1 = Integer.parseInt(input1.getText());
+		double number2 = Integer.parseInt(input2.getText());
 		JButton buttonPressed = (JButton) e.getSource();
 		if (buttonPressed == button1) {
 			label.setText(calculator.add(number1, number2) + "");
