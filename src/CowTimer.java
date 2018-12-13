@@ -17,7 +17,7 @@ public class CowTimer {
 	public static void main(String[] args) throws InterruptedException {
 		/* 1. Make a CowTimer, set the time and start it. */
 		CowTimer cowtimer = new CowTimer();
-		cowtimer.setTime(3);
+		cowtimer.setTime(1);
 		cowtimer.start();
 	}
 
@@ -43,7 +43,7 @@ for (int i = minutes; i > 0; i--) {
 		 * You can use the .wav file in the default package, or you can download one
 		 * from freesound.org, then drag it intothe default package.
 		 */
-
+playSound("moo.wav");
 	}
 
 	private void playSound(String fileName) {
